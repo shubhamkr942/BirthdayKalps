@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+  <title>Adoration Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet"> <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, rgba(255, 105, 180, 0.8), rgba(0, 206, 209, 0.8));
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header .title {
+      font-size: 2.5rem;
+      color: #F472B6;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .header .subtitle {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    .gallery-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px; /* Increased gap between popups */
+      max-width: 1000px; /* Ensures proper alignment within a frame */
+    }
+    .popup {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 40%; /* Reduced the size to fit two images in one row */
+      max-width: 40%;
+      padding: 10px; /* Adjusted padding for compact size */
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .popup img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+    .caption {
+      font-size: 0.9rem; /* Slightly smaller caption */
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .action-buttons {
+      display: flex;
+      justify-content: space-around;
+      gap: 5px; /* Reduced gap for compact layout */
+      margin-top: 5px;
+    }
+    .action-button {
+      background-color: transparent;
+      color: #F472B6;
+      font-size: 1rem; /* Slightly smaller buttons */
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .action-button:hover {
+      color: #D45B9E;
+    }
+    .action-button span {
+      font-size: 0.8rem; /* Slightly smaller text next to icons */
+      margin-left: 5px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page Header -->
+  <div class="header">
+    <div class="title">A Journey of Most Cherished Smiles</div>
+    <div class="subtitle">A collection of memories, love, and cherished times</div>
+  </div>
+
+  <div class="gallery-container">
+    <!-- Popup 1 -->
+    <div class="popup">
+      <img src="/pics/adore1.jpg" alt="Image 1">
+      <div class="caption">Lost in her dance, found in her eyes. 👀 </div>
+      <div class="action-buttons">
+        <button class="action-button"><i class="bi bi-heart"></i> <span>Like</span></button>
+        <button class="action-button"><i class="bi bi-chat"></i> <span>Comment</span></button>
+        <button class="action-button"><i class="bi bi-share"></i> <span>Share</span></button>
+      </div>
+    </div>
+    <!-- Popup 2 -->
+    <div class="popup">
+      <img src="/pics/adore2.jpg" alt="Image 2">
+      <div class="caption">In a saree of dreams, her kiss carries my heart. 💖✨</div>
+      <div class="action-buttons">
+        <button class="action-button"><i class="bi bi-heart"></i> <span>Like</span></button>
+        <button class="action-button"><i class="bi bi-chat"></i> <span>Comment</span></button>
+        <button class="action-button"><i class="bi bi-share"></i> <span>Share</span></button>
+      </div>
+    </div>
+    <!-- Repeat similar blocks for popups 3 to 10 -->
+    <div class="popup">
+      <img src="/pics/adore3.jpg" alt="Image 3">
+      <div class="caption">One side lake, one side you. 🌊💖</div>
+      <div class="action-buttons">
+        <button class="action-button"><i class="bi bi-heart"></i> <span>Like</span></button>
+        <button class="action-button"><i class="bi bi-chat"></i> <span>Comment</span></button>
+        <button class="action-button"><i class="bi bi-share"></i> <span>Share</span></button>
+      </div>
+    </div>
+    <div class="popup">
+      <img src="/pics/adore4.jpg" alt="Image 4">
+      <div class="caption">In the candid moment, her beauty spoke more. ✨</div>
+      <div class="action-buttons">
+        <button class="action-button"><i class="bi bi-heart"></i> <span>Like</span></button>
+        <button class="action-button"><i class="bi bi-chat"></i> <span>Comment</span></button>
+        <button class="action-button"><i class="bi bi-share"></i> <span>Share</span></button>
+      </div>
+    </div>
+    <div class="popup">
+        <img src="/pics/adore5.jpg" alt="Image 5">
+        <div class="caption">Just like a girl of my dream of some morning. 💫❤️</div>
+        <div class="action-buttons">
+          <button class="action-button"><i class="bi bi-heart"></i> <span>Like</span></button>
+          <button class="action-button"><i class="bi bi-chat"></i> <span>Comment</span></button>
+          <button class="action-button"><i class="bi bi-share"></i> <span>Share</span></button>
+        </div>
+      </div>
+      <div class="popup">
+        <img src="/pics/adore6.jpg" alt="Image 6">
+        <div class="caption">Hair, eyes, lips,all asking, 'What you looking at  ? 😍✨</div>
+        <div class="action-buttons">
+          <button class="action-button"><i class="bi bi-heart"></i> <span>Like</span></button>
+          <button class="action-button"><i class="bi bi-chat"></i> <span>Comment</span></button>
+          <button class="action-button"><i class="bi bi-share"></i> <span>Share</span></button>
+        </div>
+      </div>
+      <div class="popup">
+        <img src="/pics/adore7.jpg" alt="Image 7">
+        <div class="caption">looking so demure. 😌✨</div>
+        <div class="action-buttons">
+          <button class="action-button"><i class="bi bi-heart"></i> <span>Like</span></button>
+          <button class="action-button"><i class="bi bi-chat"></i> <span>Comment</span></button>
+          <button class="action-button"><i class="bi bi-share"></i> <span>Share</span></button>
+        </div>
+      </div>
+      <div class="popup">
+        <img src="/pics/adore8.jpg" alt="Image 8">
+        <div class="caption">One fine thing that makes it impossible to wink.🌸✨</div>
+        <div class="action-buttons">
+          <button class="action-button"><i class="bi bi-heart"></i> <span>Like</span></button>
+          <button class="action-button"><i class="bi bi-chat"></i> <span>Comment</span></button>
+          <button class="action-button"><i class="bi bi-share"></i> <span>Share</span></button>
+        </div>
+      </div>
+      <div class="popup">
+        <img src="/pics/adore9.jpg" alt="Image 9">
+        <div class="caption">Ye adayein!! Haaye!! Allah bachaye, dil ki dhadkan badhaye! 😍💫</div>
+        <div class="action-buttons">
+          <button class="action-button"><i class="bi bi-heart"></i> <span>Like</span></button>
+          <button class="action-button"><i class="bi bi-chat"></i> <span>Comment</span></button>
+          <button class="action-button"><i class="bi bi-share"></i> <span>Share</span></button>
+        </div>
+      </div>
+      <div class="popup">
+        <img src="/pics/adore10.jpg" alt="Image 10">
+        <div class="caption">Maine tujhe dekha, haste huye gaalon mein, husn ke sawalon mein, meri jawabon mein. 💖✨</div>
+        <div class="action-buttons">
+          <button class="action-button"><i class="bi bi-heart"></i> <span>Like</span></button>
+          <button class="action-button"><i class="bi bi-chat"></i> <span>Comment</span></button>
+          <button class="action-button"><i class="bi bi-share"></i> <span>Share</span></button>
+        </div>
+      </div>
+  </div>
+
+</body>
+</html>

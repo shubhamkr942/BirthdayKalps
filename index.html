@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A special birthday surprise for Kalps" />
+    <meta name="theme-color" content="#FDF2F8" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <!-- Preload fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Title -->
+    <title>Happy Birthday Kalps! 🎉</title>
+    
+    <!-- Base styles -->
+    <style>
+      /* Ensure smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background: #EC4899;
+        border-radius: 4px;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background: #DB2777;
+      }
+
+      /* Loading state */
+      #root:empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #FDF2F8, #E9D5FF, #E0E7FF);
+      }
+      
+      #root:empty::after {
+        content: "Loading your surprise...";
+        font-family: 'Inter', sans-serif;
+        font-size: 1.5rem;
+        color: #7C3AED;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+      
+      /* Base body styles */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      /* Fullscreen canvas style */
+      #bgCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Send the canvas behind all other content */
+      }
+      
+      /* Prevent FOUC */
+      .no-fouc {
+        visibility: hidden;
+      }
+      
+      /* Ensure images don't overflow */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      /* Better focus styles */
+      :focus {
+        outline: 2px solid #EC4899;
+        outline-offset: 2px;
+      }
+      
+      /* Reduced motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Add a canvas element for the particle background -->
+    <canvas id="bgCanvas"></canvas>
+
+    <div id="root"></div>
+
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: 'Inter', sans-serif;">
+        <h1 style="color: #7C3AED;">Please Enable JavaScript</h1>
+        <p style="color: #4B5563;">This birthday surprise requires JavaScript to work its magic! 🎂✨</p>
+      </div>
+    </noscript>
+
+    <!-- Include Three.js via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+      // Three.js Particle Animation Script
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bgCanvas') });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      // Create particles
+      const particles = new THREE.BufferGeometry();
+      const particleCount = 5000;
+      const positions = new Float32Array(particleCount * 3);
+      for (let i = 0; i < particleCount; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 2000;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 2000;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 2000;
+      }
+      particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+      // Material for particles
+      const material = new THREE.PointsMaterial({
+        color: 0xffffff,
+        size: 0.5,
+        sizeAttenuation: true
+      });
+
+      const particleSystem = new THREE.Points(particles, material);
+      scene.add(particleSystem);
+
+      camera.position.z = 1000;
+
+      // Animate the particles
+      function animate() {
+        requestAnimationFrame(animate);
+
+        particleSystem.rotation.x += 0.0005;
+        particleSystem.rotation.y += 0.0005;
+
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+    </script>
+
+    <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      // Prevent FOUC
+      document.documentElement.classList.add('no-fouc');
+      window.addEventListener('load', function() {
+        document.documentElement.classList.remove('no-fouc');
+      });
+      
+      // Ensure smooth loading of images
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+          img.addEventListener('load', function() {
+            this.style.opacity = '1';
+          });
+          if (img.complete) {
+            img.style.opacity = '1';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
